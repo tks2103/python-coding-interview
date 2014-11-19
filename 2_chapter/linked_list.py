@@ -16,6 +16,12 @@ class LinkedList:
       current = current.next
     current.next = n
 
+  def prn(self):
+    current = self.root
+    while current:
+      print(current.data)
+      current = current.next
+
   @staticmethod
   def build_from_array(ary):
     new_list = LinkedList(None)
