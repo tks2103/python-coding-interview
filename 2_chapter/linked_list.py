@@ -7,7 +7,7 @@ class LinkedList:
   def __init__(self, r):
     self.root = r
 
-  def insertAtEnd(self, n):
+  def insert_at_end(self, n):
     if self.root == None:
       self.root = n
       return
@@ -17,14 +17,14 @@ class LinkedList:
     current.next = n
 
   @staticmethod
-  def buildFromArray(ary):
+  def build_from_array(ary):
     new_list = LinkedList(None)
     for x in ary:
       add = Node(None, x)
-      new_list.insertAtEnd(add)
+      new_list.insert_at_end(add)
     return new_list
 
-lst = LinkedList.buildFromArray([1,3,2])
+lst = LinkedList.build_from_array([1,3,2])
 
 if __name__ == "__main__":
   assert(lst.root.data == 1)
