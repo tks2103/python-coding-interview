@@ -13,9 +13,18 @@ def add_lists_reverse(lst1, lst2):
     current1 = current1.next
     current2 = current2.next
   if current1:
-    output.insert_at_end(Node(None, current1.data + accumulator))
-  if current2:
-    output.insert_at_end(Node(None, current2.data + accumulator))
+    value = current1.data + accumulator
+    output.insert_at_end(Node(None, value % 10))
+    if value > 10:
+      output.insert_at_end(Node(None, int(math.floor(value/10))))
+  elif current2:
+    value = current2.data + accumulator
+    output.insert_at_end(Node(None, value % 10))
+    if value > 10:
+      output.insert_at_end(Node(None, int(math.floor(value/10))))
+  else:
+    if accumulator > 0:
+      output.insert_at_end(Node(None, accumulator))
 
   return output
 
@@ -28,8 +37,8 @@ def reverse_list(lst):
 
   return LinkedList(node)
 
-lst1 = LinkedList.build_from_array([1,2,3])
-lst2 = LinkedList.build_from_array([3,8,5])
+lst1 = LinkedList.build_from_array([5,2,5])
+lst2 = LinkedList.build_from_array([1,4,8,5])
 
 add_lists_reverse(lst1, lst2).prn()
 add_lists_reverse(reverse_list(lst1), reverse_list(lst2)).prn()
