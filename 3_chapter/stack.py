@@ -6,16 +6,19 @@ class Node(object):
 class Stack(object):
   def __init__(self):
     self.top = None
+    self.size = 0
 
   def push(self, data):
     node = Node(data)
     node.next = self.top
     self.top = node
+    self.size += 1
 
   def pop(self):
     if(self.top != None):
       item = self.top.data
       self.top = self.top.next
+      self.size -= 1
       return item
     return None
 
