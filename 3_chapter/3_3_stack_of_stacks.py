@@ -32,6 +32,10 @@ class SetOfStacks():
       else:
         return stack.pop()
 
+  def pop_at(self, index):
+    if index < len(self.stacks):
+      return self.stacks[index].pop()
+
 
 
 ss = SetOfStacks(2)
@@ -43,3 +47,13 @@ assert(ss.pop() == 5)
 assert(ss.pop() == 4)
 assert(len(ss.stacks) == 1)
 assert(ss.pop() == 3)
+
+ss.push(3)
+ss.push(4)
+ss.push(5)
+assert(len(ss.stacks) == 2)
+assert(ss.pop_at(0) == 4)
+assert(ss.pop_at(0) == 3)
+assert(ss.pop_at(0) == None)
+assert(ss.pop() == 5)
+assert(ss.pop() == None)
